@@ -31,6 +31,9 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
     var backPreviewLayer:AVCaptureVideoPreviewLayer!
     var frontCamOutput:AVCaptureMovieFileOutput!
     var backCamOutput:AVCaptureMovieFileOutput!
+    private var pipDevicePosition: AVCaptureDevice.Position = .front
+    
+    //File asset variables
     var assetWriter:AVAssetWriter!
     var assetVideoInput:AVAssetWriterInput!
     var assetAudioOutput:AVAssetWriterInput!
@@ -60,6 +63,8 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
     
     @IBOutlet weak var LargeView: UIView!
     @IBOutlet weak var smallView: UIView!
+    @IBOutlet private var frontCameraPiPConstraints: [NSLayoutConstraint]!
+    @IBOutlet private var backCameraPiPConstraints: [NSLayoutConstraint]!
     
     @IBOutlet weak var BPMLabel: UILabel!
     @IBOutlet weak var workoutButton: UIButton!
@@ -70,7 +75,12 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // create a stream calls to set up the stream
+        
+        // Allow users to double tap to switch between the front and back cameras being in a PiP
+        let togglePiPDoubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(togglePiP))
+        togglePiPDoubleTapGestureRecognizer.numberOfTapsRequired = 2
+        view.addGestureRecognizer(togglePiPDoubleTapGestureRecognizer)
+        
         self.streamClass = Stream();
         self.screenRecorder = RPScreenRecorder.shared();
         self.screenRecorder.isMicrophoneEnabled = true;// enables the usage of microphone
@@ -78,6 +88,34 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
         setupLocationManager();// setup for location services
         setUpWatchSession();
         //setupHealthStore()
+    }
+    
+    @objc // Expose to Objective-C for use with #selector()
+    private func togglePiP() {
+        // Disable animations so the views move immediately
+        CATransaction.begin()
+        UIView.setAnimationsEnabled(false)
+        CATransaction.setDisableActions(true)
+        
+        if pipDevicePosition == .front {
+            //NSLayoutConstraint.deactivate(frontCameraPiPConstraints)
+            //NSLayoutConstraint.activate(backCameraPiPConstraints)
+            self.frontPreviewLayer.frame = self.LargeView.bounds;
+            self.backPreviewLayer.frame = self.smallView.bounds;
+            view.sendSubviewToBack(smallView)
+            pipDevicePosition = .back
+        } else {
+            //NSLayoutConstraint.deactivate(backCameraPiPConstraints)
+            //NSLayoutConstraint.activate(frontCameraPiPConstraints)
+            self.frontPreviewLayer.frame = self.smallView.bounds;
+            self.backPreviewLayer.frame = self.LargeView.bounds;
+            view.sendSubviewToBack(LargeView)
+            pipDevicePosition = .front
+        }
+        
+        CATransaction.commit()
+        UIView.setAnimationsEnabled(true)
+        CATransaction.setDisableActions(false)
     }
     
     override func didReceiveMemoryWarning() {
@@ -138,12 +176,15 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
         self.view.sendSubviewToBack(LargeView);// sends the larger view to the back to the smaller one will pop in front of it(PIP- Picture in picture)
        
         
-        DispatchQueue.main.async {// dispatcht eh process to the main thread, allows for faster loading
+        DispatchQueue.main.async {// dispatch the process to the main thread, allows for faster loading
             self.multiCapSession.startRunning();// starts the multi cam caputure session
-            self.frontPreviewLayer.frame = self.smallView.bounds;// sets the preview layer frame to the small view bounds
+            
+            //Rotate the camera preview layers to match
             self.frontPreviewLayer.connection?.videoOrientation = .landscapeRight;
-            self.backPreviewLayer.frame = self.LargeView.bounds;// sets the preview layer frame to the boudns of the larger view
             self.backPreviewLayer.connection?.videoOrientation = .landscapeRight;
+            
+            self.frontPreviewLayer.frame = self.smallView.bounds;// sets the preview layer frame to the small view bounds
+            self.backPreviewLayer.frame = self.LargeView.bounds;// sets the preview layer frame to the boudns of the larger view
         }
     }
     
