@@ -44,6 +44,10 @@
 		1FE8A1DD837E9421DFAC600411684377 /* CRC32.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C407F60D08EC4E5E4865F8EBB7098D3 /* CRC32.swift */; };
 		22C2A892D7C26FF18285DCE68247C436 /* VTCompressionSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8836E676AA751AF8286B4558B15886DB /* VTCompressionSession+Extension.swift */; };
 		22CDFC68DF49A547988638E66439E523 /* CMVideoFormatDescription+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F84D36FF2D81AE131E65D0DFC57B1E /* CMVideoFormatDescription+Extension.swift */; };
+		23325A0D27E9126300927AB0 /* AWSAPIPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 23325A0C27E9126300927AB0 /* AWSAPIPlugin */; };
+		23325A0F27E9126300927AB0 /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 23325A0E27E9126300927AB0 /* AWSCognitoAuthPlugin */; };
+		23325A1127E9126300927AB0 /* AWSPluginsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 23325A1027E9126300927AB0 /* AWSPluginsCore */; };
+		23325A1327E9126300927AB0 /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = 23325A1227E9126300927AB0 /* Amplify */; };
 		2395E5D27B92DC7FC44906149367F18F /* FLVSoundType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B31A6FE7ADB08268C8EBF24AA78B54 /* FLVSoundType.swift */; };
 		23F2A528D999F00252862C835FD30D2F /* IOComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEA15DA6D155CEB5CB30FCA8D158E7D /* IOComponent.swift */; };
 		2438DCD6F4FF40B0D74C3D8A1849ACE1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
@@ -534,7 +538,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23325A1127E9126300927AB0 /* AWSPluginsCore in Frameworks */,
+				23325A1327E9126300927AB0 /* Amplify in Frameworks */,
+				23325A0D27E9126300927AB0 /* AWSAPIPlugin in Frameworks */,
 				9EFABF6473AF80096584FC858B37E5B9 /* Foundation.framework in Frameworks */,
+				23325A0F27E9126300927AB0 /* AWSCognitoAuthPlugin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -999,6 +1007,12 @@
 				A70DE54677E4CB270780312A392826F0 /* PBXTargetDependency */,
 			);
 			name = "HaishinKit-framework";
+			packageProductDependencies = (
+				23325A0C27E9126300927AB0 /* AWSAPIPlugin */,
+				23325A0E27E9126300927AB0 /* AWSCognitoAuthPlugin */,
+				23325A1027E9126300927AB0 /* AWSPluginsCore */,
+				23325A1227E9126300927AB0 /* Amplify */,
+			);
 			productName = HaishinKit;
 			productReference = 879BA084C3448E40881B9CF5079F4DFE /* HaishinKit.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1059,6 +1073,9 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			packageReferences = (
+				23325A0B27E9126300927AB0 /* XCRemoteSwiftPackageReference "amplify-ios" */,
+			);
 			productRefGroup = 022C0139AE7CC788BF97FE110F03ABE9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -2165,6 +2182,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		23325A0B27E9126300927AB0 /* XCRemoteSwiftPackageReference "amplify-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aws-amplify/amplify-ios";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		23325A0C27E9126300927AB0 /* AWSAPIPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23325A0B27E9126300927AB0 /* XCRemoteSwiftPackageReference "amplify-ios" */;
+			productName = AWSAPIPlugin;
+		};
+		23325A0E27E9126300927AB0 /* AWSCognitoAuthPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23325A0B27E9126300927AB0 /* XCRemoteSwiftPackageReference "amplify-ios" */;
+			productName = AWSCognitoAuthPlugin;
+		};
+		23325A1027E9126300927AB0 /* AWSPluginsCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23325A0B27E9126300927AB0 /* XCRemoteSwiftPackageReference "amplify-ios" */;
+			productName = AWSPluginsCore;
+		};
+		23325A1227E9126300927AB0 /* Amplify */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23325A0B27E9126300927AB0 /* XCRemoteSwiftPackageReference "amplify-ios" */;
+			productName = Amplify;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 }

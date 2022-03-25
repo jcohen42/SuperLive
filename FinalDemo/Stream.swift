@@ -19,9 +19,35 @@ class Stream:NSObject{
     override init(){
         super.init()
         self.rtmpStream = RTMPStream(connection: self.rtmpConnection);// initializes the RTMP connection isntance
+        self.rtmpStream.audioSettings = [
+            .muted: false, // mute audio
+            .bitrate: 32 * 1000,
+            .sampleRate: 0 //choppy audio. also tried 48_000 and 44_100, with same results
+        ]
     }
     
     func beginStream(){// method will be call to setup the stream settings and setup the connection
+        let session = AVAudioSession.sharedInstance()
+        do {
+            //https://stackoverflow.com/questions/51010390/avaudiosession-setcategory-swift-4-2-ios-12-play-sound-on-silent
+            if #available(iOS 10.0, *) {
+                try session.setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker, .allowBluetooth])
+            } else {
+                session.perform(NSSelectorFromString("setCategory:withOptions:error:"), with: AVAudioSession.Category.playAndRecord, with: [
+                    AVAudioSession.CategoryOptions.allowBluetooth,
+                    AVAudioSession.CategoryOptions.defaultToSpeaker]
+                )
+                try session.setMode(.default)
+            }
+            try session.setActive(true)
+        } catch {
+            print(error)
+        }
+        
+        self.rtmpStream.attachAudio(AVCaptureDevice.default(for: AVMediaType.audio), automaticallyConfiguresApplicationAudioSession: false) { error in
+            // print(error)
+        }
+        
         self.rtmpStream.receiveAudio = true;
         self.rtmpStream.audioSettings = [// sets up the audio settings
             .sampleRate: 44100.0,
@@ -38,7 +64,6 @@ class Stream:NSObject{
         let pub = "sk_us-west-2_omIwfdYpSW3n_Jdu5TpqphfwP3s5FU5fZSh3xdAYzLX"// the key for the account where the stream is being sent
         self.rtmpConnection.connect(streamURL, arguments: nil)// connects to the stream url
         self.rtmpStream.publish(pub)// sends the public key
-        self.rtmpStream.attachAudio(nil)
         self.rtmpStream.attachCamera(nil)
     }
     
@@ -47,12 +72,12 @@ class Stream:NSObject{
         print("Stream has ended")
     }
     
-    func samples(sample:CMSampleBuffer?, isvdeo:Bool){// method to send the audio and video samples
+    func samples(sample:CMSampleBuffer?, isVideo:Bool){// method to send the audio and video samples
         guard let recievedSample = sample else{// checks to see if the passed bufer is not nil
             print("The sample buffers were NULL");
             return;
         }
-        if(isvdeo){// if the buffer is a video
+        if(isVideo){// if the buffer is a video
             if let description = CMSampleBufferGetFormatDescription(recievedSample){// stores the sample buffer format description
                 let dimensions = CMVideoFormatDescriptionGetDimensions(description)// stores the dimensions of the sample buffer
                 self.rtmpStream.videoSettings = [
@@ -70,14 +95,6 @@ class Stream:NSObject{
                 .actualBitrate: 96000,
             ]
             self.rtmpStream.appendSampleBuffer(recievedSample, withType: .audio);// sends the audio to the stream
-        }
-    }
-    
-    func attachAudio(device:AVCaptureDevice){
-        self.rtmpStream.attachAudio(device, automaticallyConfiguresApplicationAudioSession: false) { (error) in
-            if(error != nil){
-                print("There was an error when attaching the audio device to the stream")
-            }
         }
     }
 }

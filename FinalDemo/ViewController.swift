@@ -1,7 +1,7 @@
 //
 //  ViewController.swift
 //  FinalDemo
-//  This View controller class will handle th preview of the front and back camera, handle responses from the user in terms of starting the stream/ starting a workout and updates the screen accordingly
+//  This View controller class will handle the preview of the front and back camera, handle responses from the user in terms of starting the stream/ starting a workout and updates the screen accordingly
 //  Created by Alexis Ponce on 7/13/21.
 //
 
@@ -63,8 +63,9 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
     
     @IBOutlet weak var LargeView: UIView!
     @IBOutlet weak var smallView: UIView!
-    @IBOutlet private var frontCameraPiPConstraints: [NSLayoutConstraint]!
-    @IBOutlet private var backCameraPiPConstraints: [NSLayoutConstraint]!
+    @IBOutlet weak var mainView: UIView!
+    @IBOutlet private var frontConstraints: [NSLayoutConstraint]!
+    @IBOutlet private var backConstraints: [NSLayoutConstraint]!
     
     @IBOutlet weak var BPMLabel: UILabel!
     @IBOutlet weak var workoutButton: UIButton!
@@ -77,13 +78,13 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
         super.viewDidLoad()
         
         // Allow users to double tap to switch between the front and back cameras being in a PiP
-        let togglePiPDoubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(togglePiP))
-        togglePiPDoubleTapGestureRecognizer.numberOfTapsRequired = 2
-        view.addGestureRecognizer(togglePiPDoubleTapGestureRecognizer)
+        //let togglePiPDoubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(togglePiP))
+        //togglePiPDoubleTapGestureRecognizer.numberOfTapsRequired = 2
+        //view.addGestureRecognizer(togglePiPDoubleTapGestureRecognizer)
         
         self.streamClass = Stream();
         self.screenRecorder = RPScreenRecorder.shared();
-        self.screenRecorder.isMicrophoneEnabled = true;// enables the usage of microphone
+        self.screenRecorder.isMicrophoneEnabled = false;// enables the usage of microphone
         showCameras();// will setup the viewfinder of the camera
         setupLocationManager();// setup for location services
         setUpWatchSession();
@@ -97,19 +98,28 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
         UIView.setAnimationsEnabled(false)
         CATransaction.setDisableActions(true)
         
+        let smallBounds = self.smallView.bounds;
+        let largeBounds = self.LargeView.bounds;
+        
         if pipDevicePosition == .front {
-            //NSLayoutConstraint.deactivate(frontCameraPiPConstraints)
-            //NSLayoutConstraint.activate(backCameraPiPConstraints)
-            self.frontPreviewLayer.frame = self.LargeView.bounds;
-            self.backPreviewLayer.frame = self.smallView.bounds;
-            view.sendSubviewToBack(smallView)
+            print("changing to back")
+            //NSLayoutConstraint.deactivate(frontConstraints)
+            //NSLayoutConstraint.activate(backConstraints)
+            //Swap sizes of the views
+            self.frontPreviewLayer.frame = largeBounds;
+            self.backPreviewLayer.frame = smallBounds;
+            //To Do: Swap positions of the views
+            view.sendSubviewToBack(self.smallView)
             pipDevicePosition = .back
         } else {
-            //NSLayoutConstraint.deactivate(backCameraPiPConstraints)
-            //NSLayoutConstraint.activate(frontCameraPiPConstraints)
-            self.frontPreviewLayer.frame = self.smallView.bounds;
-            self.backPreviewLayer.frame = self.LargeView.bounds;
-            view.sendSubviewToBack(LargeView)
+            print("changing to front")
+            //NSLayoutConstraint.deactivate(backConstraints)
+            //NSLayoutConstraint.activate(frontConstraints)
+            //Swap sizes of the views
+            self.frontPreviewLayer.frame = smallBounds;
+            self.backPreviewLayer.frame = largeBounds;
+            //To Do: Swap positions of the views
+            view.sendSubviewToBack(self.LargeView)
             pipDevicePosition = .front
         }
         
@@ -128,14 +138,11 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
             return;
         }
         self.multiCapSession = AVCaptureMultiCamSession()//creates an instance of a AVMultiCamSession
-        
-      //  print("This is the available modes \(avAudioSession.availableModes)\n This is the available catagories \(avAudioSession.availableCategories)\n This is the avaialable inputs \(avAudioSession.availableInputs)")
+
         let frontCam = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front);// creates a reference to the front camera of the iphone using AVCaputureDevice
         let backCam = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back);// creates a reference to the back camera of the iphone using AVCaptureDevice
-        let mic = AVCaptureDevice.default(for: .audio)// creates a reference to the microphone using the AVCaptureDevice
     
-       // self.streamClass.attachAudio(device: mic!)
-        let (frontCamPort, backCamPort, micPort) = self.camSessionInputsAndOutputs(frontCam: frontCam!, backCam: backCam!, mic: mic!);// calls the function that will setup the input and output ports and returns the video/audio ports
+        let (frontCamPort, backCamPort) = self.camSessionInputsAndOutputs(frontCam: frontCam!, backCam: backCam!);// calls the function that will setup the input and output ports and returns the video ports
         
         self.backPreviewLayer = AVCaptureVideoPreviewLayer()// preview layer for displaying the back camera video
         self.backPreviewLayer.connection?.videoOrientation = .landscapeRight;
@@ -159,13 +166,9 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
             print("BackCamPort does not have a value");
             return;
         }
-        guard let micInputPort = micPort else{// checks to see if there was an error when setting up the inuts and outputs
-            print("micPort does not have a value")
-            return
-        }
         
         //will setup the connections between the inputs ports/outputs(recording) and the input ports/previewlayer(camera viewfinder)
-        guard setUpCaptureSessionConnections(frontCamPort: frontCameraPort, backCamPort: backCameraPort, micPort: micInputPort) else{
+        guard setUpCaptureSessionConnections(frontCamPort: frontCameraPort, backCamPort: backCameraPort) else {
             print("The capture session Connections were not set up correctly");
             return;
         }
@@ -174,7 +177,6 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
         self.smallView.layer.addSublayer(self.frontPreviewLayer);// adds the front camera preview layer to the smaller view
         
         self.view.sendSubviewToBack(LargeView);// sends the larger view to the back to the smaller one will pop in front of it(PIP- Picture in picture)
-       
         
         DispatchQueue.main.async {// dispatch the process to the main thread, allows for faster loading
             self.multiCapSession.startRunning();// starts the multi cam caputure session
@@ -188,8 +190,7 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
         }
     }
     
-    func setUpCaptureSessionConnections(frontCamPort:AVCaptureInput.Port, backCamPort:AVCaptureInput.Port, micPort:AVCaptureInput.Port)->Bool{
-        print("this is the mics port format description \(micPort)")
+    func setUpCaptureSessionConnections(frontCamPort:AVCaptureInput.Port, backCamPort:AVCaptureInput.Port)->Bool{
         self.multiCapSession.beginConfiguration()// tells the multicam capture session changes are being made
         let frontVidPreviewLayerConnection = AVCaptureConnection(inputPort:frontCamPort, videoPreviewLayer: self.frontPreviewLayer);// creates an connection instance with the preview layer and the front camera port and the previw layer
         if(self.multiCapSession.canAddConnection(frontVidPreviewLayerConnection)){// adds the front preview layer/ front cam port connection to the multicam caputre if possible
@@ -227,28 +228,14 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
             return false;
         }
         
-        let frontCamAudioConnection = AVCaptureConnection(inputPorts: [micPort], output: self.frontCamOutput);// creates a connectin isntance with the mic port and the front cam output port for recording
-        if(self.multiCapSession.canAddConnection(frontCamAudioConnection)){// checks to see if we can add the connection
-            self.multiCapSession.addConnection(frontCamAudioConnection);
-        }else{
-            print("Coult not add audio connection to the front cam");
-            return false;
-        }
-        let backCamAudioConnection = AVCaptureConnection(inputPorts: [micPort], output: self.backCamOutput);// creates a connection instance with the mic port and the back cam port, mainly for recording
-        if(self.multiCapSession.canAddConnection(backCamAudioConnection)){
-            self.multiCapSession.addConnection(backCamAudioConnection);
-        }else{
-            print("Could not add the audio connection to the back cam");
-            return false;
-        }
         self.multiCapSession.commitConfiguration()
         return true;// succesfully able to add the connections
     }
     
-    func camSessionInputsAndOutputs(frontCam:AVCaptureDevice!, backCam:AVCaptureDevice!, mic:AVCaptureDevice!)-> (AVCaptureInput.Port?,AVCaptureInput.Port?, AVCaptureInput.Port?){// returns the input ports
+    func camSessionInputsAndOutputs(frontCam:AVCaptureDevice!, backCam:AVCaptureDevice!)-> (AVCaptureInput.Port?,AVCaptureInput.Port?){// returns the input ports
         var frontCamVidPort:AVCaptureInput.Port!;
         var backCamVidPort:AVCaptureInput.Port!;
-        var micAudioPort:AVCaptureInput.Port!
+        
         self.frontCamOutput = AVCaptureMovieFileOutput()//will be the for the front cam input port
         self.backCamOutput = AVCaptureMovieFileOutput()// will be the outputut for the back cam port
         
@@ -263,7 +250,7 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
             }
             else{
                 print("There was a problem trying to add the front cam input to the capture session");
-                return(nil,nil,nil)//
+                return (nil,nil);
             }
             for port in frontCamInputPortsArray{// linearly iterates through the input port array
                 if(port.mediaType == .video){
@@ -272,7 +259,7 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
             }
         }catch let error{// error case for when the object passes is not set up correctly
             print("There was an error when trying to get the front camera devices input: \(String(describing: error.localizedDescription))")
-            return(nil,nil,nil);
+            return (nil,nil);
         }
         do{// checks whethere there is an object in the passed variable of backCamInput
             let backCamInput = try AVCaptureDeviceInput(device: backCam);// grabs the input into a different variable
@@ -281,7 +268,7 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
                 self.multiCapSession.addInputWithNoConnections(backCamInput);// adds the input to the multiCamSession
             }else{
                 print("There was a problem trying to add the back cam input to the capture session");
-                return(nil,nil,nil)
+                return (nil,nil);
             }
             for port in backCamPortsArray{//linearly iterates through the ports array
                 if(port.mediaType == .video){// if the port is video we store it
@@ -290,49 +277,28 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
             }
         }catch let error{// error case for when the object passes is not set up correctly
             print("There was a problem when trying to add the input from the back cam device \(error.localizedDescription)")
-            return(nil,nil,nil);
-        }
-        
-        do{
-            let micInput = try AVCaptureDeviceInput(device: mic);// checks to see if the mic device wa setup correctly
-            let micPortsArray = micInput.ports;// creats an array of all the ports inside the mic input
-            if(self.multiCapSession.canAddInput(micInput)){// checks to see if we can add the mic input to the multicamSession
-                self.multiCapSession.addInputWithNoConnections(micInput);
-            }
-            else{
-                print("There was a problem trying to add the mic input to the capture session");
-                return(nil,nil,nil);
-            }
-            for port in micPortsArray{//linearly iterates through the mic ports to find the audio
-                if(port.mediaType == .audio){
-                    micAudioPort = port;// saves the audio port
-                }
-            }
-        }catch let error{//error case for when the mic object passes is not set up correctly
-            print("There was an error when trying to add the mic input: \(String(describing: error.localizedDescription))");
-            return(nil,nil,nil);
+            return (nil,nil);
         }
         
         //adding the ouputs to the capture session
-        
         if(self.multiCapSession.canAddOutput(self.frontCamOutput)){// adds the front cam output to the multicam session
             self.multiCapSession.addOutputWithNoConnections(self.frontCamOutput);
         }else{
             print("The front cam output could not be added")
-            return(nil,nil,nil);
+            return (nil,nil);
         }
         
         if(self.multiCapSession.canAddOutput(self.backCamOutput)){// adds the back cam output to the multicam
             self.multiCapSession.addOutputWithNoConnections(self.backCamOutput)
         }else{
             print("The back cam output could not be added");
-            return(nil,nil,nil);
+            return (nil,nil);
         }
         self.multiCapSession.commitConfiguration()//saves all the chagnes made to the multicamSession
-        return (frontCamVidPort, backCamVidPort, micAudioPort)// return all the ports found on the audio and video
+        return (frontCamVidPort, backCamVidPort)// return all the ports found on the audio and video
     }
     
-    @IBAction func beginStream(_ sender: Any){// method used to start a "Screcapture" that will send the audio/video buffers to the streaming class
+    @IBAction func beginStream(_ sender: Any){// method used to start a "Screen capture" that will send the video buffers to the streaming class
         
         if(self.screenRecorder.isRecording){// checks to see if it is already recording
             self.streamLabel.setTitle("Begin Stream", for: .normal)//changes the button to show the user that the stream has ended
@@ -406,21 +372,15 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
                         switch sampleBufferType{// checks to see what buffers we got in return
                         case .video:
                             print("Sending video sample")
-                            self.streamClass.samples(sample: sampleBuffer, isvdeo: true)// if we got video buffers it will pass it along to the stream class
+                            self.streamClass.samples(sample: sampleBuffer, isVideo: true)// if we got video buffers it will pass it along to the stream class
                            // self.assetVideoInput.append(sampleBuffer);
                             break;
                         case .audioApp:
                             break;
-                        case .audioMic:
-                            print("audio sample is\(sampleBuffer)")
-                            self.streamClass.Channels = Int((sampleBuffer.formatDescription?.audioStreamBasicDescription!.mBitsPerChannel)!)
-                            if(CMSampleBufferDataIsReady(sampleBuffer)){// makes sure the buffer is ready to be sent
-                                self.streamClass.samples(sample: sampleBuffer, isvdeo: false)// sends the audio buffer to the stream class
-                               // self.assetAudioOutput.append(sampleBuffer)
-                            }
+                        case .audioMic: //this case will never be reached
+                            print("Received an audio buffer somehow")
                             break;
                         default:
-
                             print("Reieved unknown buffer from screen capture");
                             break;
                         }
