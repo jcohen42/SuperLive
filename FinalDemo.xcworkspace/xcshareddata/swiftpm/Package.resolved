@@ -1,70 +1,23 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "Amplify",
-        "repositoryURL": "https://github.com/aws-amplify/amplify-ios",
-        "state": {
-          "branch": "main",
-          "revision": "6304cbc369a8f0b59fb8531dac19d3b257870609",
-          "version": null
-        }
-      },
-      {
-        "package": "AppSyncRealTimeClient",
-        "repositoryURL": "https://github.com/aws-amplify/aws-appsync-realtime-client-ios.git",
-        "state": {
-          "branch": null,
-          "revision": "57d5df1590e9ead5a0c3677ffa8d83688bd48608",
-          "version": "1.9.0"
-        }
-      },
-      {
-        "package": "AWSiOSSDKV2",
-        "repositoryURL": "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
-        "state": {
-          "branch": null,
-          "revision": "e806b0d5fceacec2c993b30f24d9f35570f44e6a",
-          "version": "2.27.4"
-        }
-      },
-      {
-        "package": "HaishinKit",
-        "repositoryURL": "https://github.com/shogo4405/HaishinKit.swift",
-        "state": {
-          "branch": null,
-          "revision": "f28aac274e0f12cad2160e137a63d7c2b3897291",
-          "version": "1.2.1"
-        }
-      },
-      {
-        "package": "Logboard",
-        "repositoryURL": "https://github.com/shogo4405/Logboard.git",
-        "state": {
-          "branch": null,
-          "revision": "8cc7656b07e4d327fae42e1320e2e48b8868e3f6",
-          "version": "2.2.2"
-        }
-      },
-      {
-        "package": "SQLite.swift",
-        "repositoryURL": "https://github.com/stephencelis/SQLite.swift.git",
-        "state": {
-          "branch": null,
-          "revision": "5f5ad81ac0d0a0f3e56e39e646e8423c617df523",
-          "version": "0.13.2"
-        }
-      },
-      {
-        "package": "Starscream",
-        "repositoryURL": "https://github.com/daltoniam/Starscream",
-        "state": {
-          "branch": null,
-          "revision": "df8d82047f6654d8e4b655d1b1525c64e1059d21",
-          "version": "4.0.4"
-        }
+  "pins" : [
+    {
+      "identity" : "haishinkit.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/shogo4405/HaishinKit.swift",
+      "state" : {
+        "branch" : "main",
+        "revision" : "ae178092db4e82ad47e239a8ee9787adf83219ad"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "logboard",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/shogo4405/Logboard.git",
+      "state" : {
+        "revision" : "8cc7656b07e4d327fae42e1320e2e48b8868e3f6",
+        "version" : "2.2.2"
+      }
+    }
+  ],
+  "version" : 2
 }

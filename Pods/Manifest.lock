@@ -1,20 +1,24 @@
 PODS:
+  - AmazonIVSPlayer (1.8.0)
   - HaishinKit (1.1.5):
     - Logboard (~> 2.2.1)
   - Logboard (2.2.2)
 
 DEPENDENCIES:
+  - AmazonIVSPlayer
   - HaishinKit (~> 1.1.5)
 
 SPEC REPOS:
   trunk:
+    - AmazonIVSPlayer
     - HaishinKit
     - Logboard
 
 SPEC CHECKSUMS:
+  AmazonIVSPlayer: e4f8df3ece5ff03eb8d557242711476730af294d
   HaishinKit: 5cf385a823dee6b299404877edf418974422bf9f
   Logboard: 0ab6bbd984ed032b3f0b615cef06779a73445c80
 
-PODFILE CHECKSUM: 0e8515f4d1c0f9c47d960a45ef4f892af81755c3
+PODFILE CHECKSUM: a7cb5e5cb63a209a9ba77049c95ad43c9d4bd181
 
 COCOAPODS: 1.11.2

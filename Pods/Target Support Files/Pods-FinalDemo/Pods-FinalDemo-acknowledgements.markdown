@@ -1,6 +1,10 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
+## AmazonIVSPlayer
+
+https://player.live-video.net/LICENSE.txt
+
 ## HaishinKit
 
 BSD 3-Clause License

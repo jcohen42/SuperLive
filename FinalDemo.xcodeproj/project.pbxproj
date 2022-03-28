@@ -9,10 +9,8 @@
 /* Begin PBXBuildFile section */
 		0469FCC702B4C5BA64EFD3BA /* Pods_FinalDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F064D575F8EA4B4CA9912CFE /* Pods_FinalDemoTests.framework */; };
 		2392CF89270FA198000D8A31 /* HaishinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2392CF88270FA198000D8A31 /* HaishinKit */; };
-		23ED22C927ED394D00BB3B06 /* AWSAPIPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 23ED22C827ED394D00BB3B06 /* AWSAPIPlugin */; };
-		23ED22CB27ED394D00BB3B06 /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 23ED22CA27ED394D00BB3B06 /* AWSCognitoAuthPlugin */; };
-		23ED22CD27ED394D00BB3B06 /* AWSPluginsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 23ED22CC27ED394D00BB3B06 /* AWSPluginsCore */; };
-		23ED22CF27ED394D00BB3B06 /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = 23ED22CE27ED394D00BB3B06 /* Amplify */; };
+		23DBCC2D27F0E037005854E2 /* HaishinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 23DBCC2C27F0E037005854E2 /* HaishinKit */; };
+		23E214C927EFC79B000D4CDD /* IVSPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E214C827EFC79B000D4CDD /* IVSPlayerController.swift */; };
 		937A165868122ECCEE246A05 /* Pods_FinalDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC7666A10C6B8B556C8781C /* Pods_FinalDemo.framework */; };
 		AE2B9AE64DEBCB8E82DC4620 /* Pods_FinalDemo_FinalDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257E347E54F1425ECDDD21E7 /* Pods_FinalDemo_FinalDemoUITests.framework */; };
 		B03BE75D26AA098D0052DB65 /* location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03BE75C26AA098D0052DB65 /* location.swift */; };
@@ -112,6 +110,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		23E214C827EFC79B000D4CDD /* IVSPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IVSPlayerController.swift; sourceTree = "<group>"; };
 		257E347E54F1425ECDDD21E7 /* Pods_FinalDemo_FinalDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinalDemo_FinalDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DC7666A10C6B8B556C8781C /* Pods_FinalDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinalDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DD5522B6228B7022A794E72 /* Pods-FinalDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalDemo.release.xcconfig"; path = "Target Support Files/Pods-FinalDemo/Pods-FinalDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -167,12 +166,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23ED22C927ED394D00BB3B06 /* AWSAPIPlugin in Frameworks */,
-				23ED22CF27ED394D00BB3B06 /* Amplify in Frameworks */,
-				23ED22CB27ED394D00BB3B06 /* AWSCognitoAuthPlugin in Frameworks */,
-				23ED22CD27ED394D00BB3B06 /* AWSPluginsCore in Frameworks */,
 				937A165868122ECCEE246A05 /* Pods_FinalDemo.framework in Frameworks */,
 				2392CF89270FA198000D8A31 /* HaishinKit in Frameworks */,
+				23DBCC2D27F0E037005854E2 /* HaishinKit in Frameworks */,
 				B0FD4F5F26B32D8000C326DC /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,6 +290,7 @@
 				B09D1A20269E4BF100D5EBC1 /* LaunchScreen.storyboard */,
 				B09D1A23269E4BF100D5EBC1 /* Info.plist */,
 				B09D1A1B269E4BF000D5EBC1 /* FinalDemo.xcdatamodeld */,
+				23E214C827EFC79B000D4CDD /* IVSPlayerController.swift */,
 			);
 			path = FinalDemo;
 			sourceTree = "<group>";
@@ -381,10 +378,7 @@
 			name = FinalDemo;
 			packageProductDependencies = (
 				2392CF88270FA198000D8A31 /* HaishinKit */,
-				23ED22C827ED394D00BB3B06 /* AWSAPIPlugin */,
-				23ED22CA27ED394D00BB3B06 /* AWSCognitoAuthPlugin */,
-				23ED22CC27ED394D00BB3B06 /* AWSPluginsCore */,
-				23ED22CE27ED394D00BB3B06 /* Amplify */,
+				23DBCC2C27F0E037005854E2 /* HaishinKit */,
 			);
 			productName = FinalDemo;
 			productReference = B09D1A0F269E4BF000D5EBC1 /* FinalDemo.app */;
@@ -547,7 +541,7 @@
 			mainGroup = B09D1A06269E4BEF00D5EBC1;
 			packageReferences = (
 				2392CF87270FA198000D8A31 /* XCRemoteSwiftPackageReference "HaishinKit" */,
-				23ED22C727ED394D00BB3B06 /* XCRemoteSwiftPackageReference "amplify-ios" */,
+				23DBCC2B27F0E036005854E2 /* XCRemoteSwiftPackageReference "HaishinKit" */,
 			);
 			productRefGroup = B09D1A10269E4BF000D5EBC1 /* Products */;
 			projectDirPath = "";
@@ -730,6 +724,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23E214C927EFC79B000D4CDD /* IVSPlayerController.swift in Sources */,
 				B03BE75D26AA098D0052DB65 /* location.swift in Sources */,
 				B09D1A17269E4BF000D5EBC1 /* ViewController.swift in Sources */,
 				B09D1A1D269E4BF000D5EBC1 /* FinalDemo.xcdatamodeld in Sources */,
@@ -1356,9 +1351,9 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		23ED22C727ED394D00BB3B06 /* XCRemoteSwiftPackageReference "amplify-ios" */ = {
+		23DBCC2B27F0E036005854E2 /* XCRemoteSwiftPackageReference "HaishinKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/aws-amplify/amplify-ios";
+			repositoryURL = "https://github.com/shogo4405/HaishinKit.swift";
 			requirement = {
 				branch = main;
 				kind = branch;
@@ -1372,25 +1367,10 @@
 			package = 2392CF87270FA198000D8A31 /* XCRemoteSwiftPackageReference "HaishinKit" */;
 			productName = HaishinKit;
 		};
-		23ED22C827ED394D00BB3B06 /* AWSAPIPlugin */ = {
+		23DBCC2C27F0E037005854E2 /* HaishinKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 23ED22C727ED394D00BB3B06 /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = AWSAPIPlugin;
-		};
-		23ED22CA27ED394D00BB3B06 /* AWSCognitoAuthPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 23ED22C727ED394D00BB3B06 /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = AWSCognitoAuthPlugin;
-		};
-		23ED22CC27ED394D00BB3B06 /* AWSPluginsCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 23ED22C727ED394D00BB3B06 /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = AWSPluginsCore;
-		};
-		23ED22CE27ED394D00BB3B06 /* Amplify */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 23ED22C727ED394D00BB3B06 /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = Amplify;
+			package = 23DBCC2B27F0E036005854E2 /* XCRemoteSwiftPackageReference "HaishinKit" */;
+			productName = HaishinKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 
