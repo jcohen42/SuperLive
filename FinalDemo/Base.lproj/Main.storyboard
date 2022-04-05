@@ -49,42 +49,31 @@
         <scene sceneID="AMu-bv-gVU">
             <objects>
                 <viewController id="aBS-w8-84N" customClass="IVSPlayerController" customModule="FinalDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hYU-yF-Ctu">
+                    <view key="view" contentMode="scaleToFill" id="f1O-Va-xI4">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C83-jc-xlf">
-                                <rect key="frame" x="14" y="20" width="56" height="31"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PFc-es-gHq" customClass="IVSPlayerView">
+                                <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnK-RJ-0GK">
+                                <rect key="frame" x="0.0" y="42" width="56" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Back"/>
                                 <connections>
-                                    <segue destination="0ch-XU-9kA" kind="show" id="1PA-zQ-BII"/>
+                                    <segue destination="0ch-XU-9kA" kind="show" id="VdJ-FQ-MpP"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uG9-sn-e9a">
-                                <rect key="frame" x="64" y="20" width="768" height="373"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMc-GI-24E">
-                                        <rect key="frame" x="631" y="306" width="51" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Play"/>
-                                        <connections>
-                                            <action selector="play" destination="aBS-w8-84N" eventType="touchUpInside" id="u5R-26-7C3"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
-                            </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="gki-Kk-BOW"/>
+                        <viewLayoutGuide key="safeArea" id="WIO-fO-mFi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="jth-ha-SPt"/>
                     <connections>
-                        <outlet property="playerView" destination="uG9-sn-e9a" id="efE-i1-HZQ"/>
+                        <outlet property="playerView" destination="PFc-es-gHq" id="0Cu-b5-vY2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2sT-7s-afk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -181,12 +170,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1PA-zQ-BII"/>
+        <segue reference="cOx-di-nYf"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="separatorColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

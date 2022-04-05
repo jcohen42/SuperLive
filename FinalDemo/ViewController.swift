@@ -372,7 +372,7 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
                         switch sampleBufferType{// checks to see what buffers we got in return
                         case .video:
                             print("Sending video sample")
-                            self.streamClass.samples(sample: sampleBuffer, isVideo: true)// if we got video buffers it will pass it along to the stream class
+                            self.streamClass.samples(sample: sampleBuffer)//pass video sample along to the stream class
                            // self.assetVideoInput.append(sampleBuffer);
                             break;
                         case .audioApp:

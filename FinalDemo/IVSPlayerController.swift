@@ -15,27 +15,30 @@ class IVSPlayerController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //Adds an observer for then the user goes home to pause the stream
         NotificationCenter.default.addObserver(self,
             selector: #selector(applicationDidEnterBackground(_:)),
             name: UIApplication.didEnterBackgroundNotification,
             object: nil)
+        
+        //Play the live stream
+        self.playVideo(url: URL(string: "https://c7de521ac11f.us-west-2.playback.live-video.net/api/video/v1/us-west-2.533032379413.channel.pW8qbswW0rTw.m3u8")!)
     }
 
+    //Pause the video when the app is closed
     @objc func applicationDidEnterBackground(_ notification: NSNotification) {
         playerView?.player?.pause()
     }
 
-    // Assumes this view controller is already loaded.
-    // For example, this could be called by a button tap.
+    // Plays a video with a given URL on playerView
     func playVideo(url videoURL: URL) {
         let player = IVSPlayer()
         player.delegate = self
+        print("Setting playerView")
         playerView.player = player
+        print("Loading stream")
         player.load(videoURL)
-    }
-    
-    @IBAction func play() {
-        self.playVideo(url: URL(string: "https://c7de521ac11f.us-west-2.playback.live-video.net/api/video/v1/us-west-2.533032379413.channel.pW8qbswW0rTw.m3u8")!)
+        print("done!")
     }
 }
 
