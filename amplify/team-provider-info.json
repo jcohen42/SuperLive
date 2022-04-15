@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-superlive-dev-00154-authRole",
+      "UnauthRoleArn": "arn:aws:iam::533032379413:role/amplify-superlive-dev-00154-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::533032379413:role/amplify-superlive-dev-00154-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-superlive-dev-00154-deployment",
+      "UnauthRoleName": "amplify-superlive-dev-00154-unauthRole",
+      "StackName": "amplify-superlive-dev-00154",
+      "StackId": "arn:aws:cloudformation:us-east-1:533032379413:stack/amplify-superlive-dev-00154/f1d17420-bc89-11ec-b607-0e3bd7d82a91",
+      "AmplifyAppId": "d3oh26vz2x0uxn"
+    }
+  }
+}
