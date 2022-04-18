@@ -55,8 +55,8 @@ class Stream:NSObject{
                 AVSampleRateKey: 0
             ]
         ]
-        let streamURL = "rtmps://c7de521ac11f.global-contribute.live-video.net:443/app/"// url where the stream will be sent to
-        let pub = "sk_us-west-2_omIwfdYpSW3n_Jdu5TpqphfwP3s5FU5fZSh3xdAYzLX"// the key for the account where the stream is being sent
+        let streamURL = "rtmps://030c054ffef4.global-contribute.live-video.net:443/app/"// url where the stream will be sent to
+        let pub = "sk_us-east-1_16ljk3USbOn7_z2d6omAoUMH20hSZFMdQ6vgvXu55Tm"// the key for the account where the stream is being sent
         self.rtmpConnection.connect(streamURL, arguments: nil)// connects to the stream url
         self.rtmpStream.publish(pub)// sends the public key
         self.rtmpStream.attachCamera(nil)

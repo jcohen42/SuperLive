@@ -69,10 +69,27 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
     
     @IBOutlet weak var BPMLabel: UILabel!
     @IBOutlet weak var workoutButton: UIButton!
+    @IBOutlet var settingsButton: UIButton!
+    
+    //Settings menus
+    let startStreamItem = UIAction(title: "Start Stream", image: UIImage(systemName: "play.circle")) { (action) in
+             print("Start Stream action was tapped")
+    }
+    
+    let stopStreamItem = UIAction(title: "Stop Stream", image: UIImage(systemName: "stop.circle")) { (action) in
+             print("Stop Stream action was tapped")
+    }
+    
+    let startWorkoutItem = UIAction(title: "Start Workout", image: UIImage(systemName: "person.crop.circle.fill.badge.plus")) { (action) in
+             print("Start Workout action was tapped")
+    }
+    
+    let stopWorkoutItem = UIAction(title: "Stop Workout", image: UIImage(systemName: "person.crop.circle.fill.badge.minus")) { (action) in
+             print("Stop Workout action was tapped")
+    }
+    
     //screen recording variables
     var screenRecorder:RPScreenRecorder!
-    
-    //location variables
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,6 +106,21 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
         setupLocationManager();// setup for location services
         setUpWatchSession();
         //setupHealthStore()
+        
+        //Set rounded corners
+        mapView.layer.cornerRadius = 20;
+        smallView.layer.cornerRadius = 20;
+        frontPreviewLayer.cornerRadius = 20;
+        
+        //Hide distance and BPM labels
+        BPMLabel.isHidden = true;
+        distanceLabel.isHidden = true;
+        
+        //Set the settings UIMenu
+        let menu = UIMenu(title: "Settings Menu", options: .displayInline, children: [startWorkoutItem, startStreamItem])
+        
+        settingsButton.menu = menu
+        settingsButton.showsMenuAsPrimaryAction = true
     }
     
     @objc // Expose to Objective-C for use with #selector()

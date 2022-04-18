@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0469FCC702B4C5BA64EFD3BA /* Pods_FinalDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F064D575F8EA4B4CA9912CFE /* Pods_FinalDemoTests.framework */; };
+		23049813280E2EFF00A3E45C /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 23049812280E2EFF00A3E45C /* AWSCognitoAuthPlugin */; };
+		23049815280E2EFF00A3E45C /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = 23049814280E2EFF00A3E45C /* Amplify */; };
 		2392CF89270FA198000D8A31 /* HaishinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2392CF88270FA198000D8A31 /* HaishinKit */; };
 		23DBCC2D27F0E037005854E2 /* HaishinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 23DBCC2C27F0E037005854E2 /* HaishinKit */; };
 		23E214C927EFC79B000D4CDD /* IVSPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E214C827EFC79B000D4CDD /* IVSPlayerController.swift */; };
@@ -167,7 +169,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				937A165868122ECCEE246A05 /* Pods_FinalDemo.framework in Frameworks */,
+				23049813280E2EFF00A3E45C /* AWSCognitoAuthPlugin in Frameworks */,
 				2392CF89270FA198000D8A31 /* HaishinKit in Frameworks */,
+				23049815280E2EFF00A3E45C /* Amplify in Frameworks */,
 				23DBCC2D27F0E037005854E2 /* HaishinKit in Frameworks */,
 				B0FD4F5F26B32D8000C326DC /* HealthKit.framework in Frameworks */,
 			);
@@ -379,6 +383,8 @@
 			packageProductDependencies = (
 				2392CF88270FA198000D8A31 /* HaishinKit */,
 				23DBCC2C27F0E037005854E2 /* HaishinKit */,
+				23049812280E2EFF00A3E45C /* AWSCognitoAuthPlugin */,
+				23049814280E2EFF00A3E45C /* Amplify */,
 			);
 			productName = FinalDemo;
 			productReference = B09D1A0F269E4BF000D5EBC1 /* FinalDemo.app */;
@@ -542,6 +548,7 @@
 			packageReferences = (
 				2392CF87270FA198000D8A31 /* XCRemoteSwiftPackageReference "HaishinKit" */,
 				23DBCC2B27F0E036005854E2 /* XCRemoteSwiftPackageReference "HaishinKit" */,
+				23049811280E2EFF00A3E45C /* XCRemoteSwiftPackageReference "amplify-ios" */,
 			);
 			productRefGroup = B09D1A10269E4BF000D5EBC1 /* Products */;
 			projectDirPath = "";
@@ -1343,6 +1350,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		23049811280E2EFF00A3E45C /* XCRemoteSwiftPackageReference "amplify-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aws-amplify/amplify-ios";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		2392CF87270FA198000D8A31 /* XCRemoteSwiftPackageReference "HaishinKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/shogo4405/HaishinKit.swift";
@@ -1362,6 +1377,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		23049812280E2EFF00A3E45C /* AWSCognitoAuthPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23049811280E2EFF00A3E45C /* XCRemoteSwiftPackageReference "amplify-ios" */;
+			productName = AWSCognitoAuthPlugin;
+		};
+		23049814280E2EFF00A3E45C /* Amplify */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23049811280E2EFF00A3E45C /* XCRemoteSwiftPackageReference "amplify-ios" */;
+			productName = Amplify;
+		};
 		2392CF88270FA198000D8A31 /* HaishinKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2392CF87270FA198000D8A31 /* XCRemoteSwiftPackageReference "HaishinKit" */;

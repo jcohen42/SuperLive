@@ -22,7 +22,7 @@ class IVSPlayerController: UIViewController {
             object: nil)
         
         //Play the live stream
-        self.playVideo(url: URL(string: "https://c7de521ac11f.us-west-2.playback.live-video.net/api/video/v1/us-west-2.533032379413.channel.pW8qbswW0rTw.m3u8")!)
+        self.playVideo(url: URL(string: "https://030c054ffef4.us-east-1.playback.live-video.net/api/video/v1/us-east-1.533032379413.channel.dNn0m3nn5xaV.m3u8")!)
     }
 
     //Pause the video when the app is closed

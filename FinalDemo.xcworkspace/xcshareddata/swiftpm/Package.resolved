@@ -1,6 +1,33 @@
 {
   "pins" : [
     {
+      "identity" : "amplify-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/aws-amplify/amplify-ios",
+      "state" : {
+        "branch" : "main",
+        "revision" : "6304cbc369a8f0b59fb8531dac19d3b257870609"
+      }
+    },
+    {
+      "identity" : "aws-appsync-realtime-client-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/aws-amplify/aws-appsync-realtime-client-ios.git",
+      "state" : {
+        "revision" : "57d5df1590e9ead5a0c3677ffa8d83688bd48608",
+        "version" : "1.9.0"
+      }
+    },
+    {
+      "identity" : "aws-sdk-ios-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+      "state" : {
+        "revision" : "e806b0d5fceacec2c993b30f24d9f35570f44e6a",
+        "version" : "2.27.4"
+      }
+    },
+    {
       "identity" : "haishinkit.swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/shogo4405/HaishinKit.swift",
@@ -16,6 +43,24 @@
       "state" : {
         "revision" : "8cc7656b07e4d327fae42e1320e2e48b8868e3f6",
         "version" : "2.2.2"
+      }
+    },
+    {
+      "identity" : "sqlite.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/stephencelis/SQLite.swift.git",
+      "state" : {
+        "revision" : "5f5ad81ac0d0a0f3e56e39e646e8423c617df523",
+        "version" : "0.13.2"
+      }
+    },
+    {
+      "identity" : "starscream",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/daltoniam/Starscream",
+      "state" : {
+        "revision" : "df8d82047f6654d8e4b655d1b1525c64e1059d21",
+        "version" : "4.0.4"
       }
     }
   ],
