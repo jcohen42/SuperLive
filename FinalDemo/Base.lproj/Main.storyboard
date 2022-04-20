@@ -17,26 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vg9-1t-nHR">
-                                <rect key="frame" x="376" y="106" width="145" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Watch Live Stream"/>
-                                <connections>
-                                    <segue destination="aBS-w8-84N" kind="show" id="akx-Pg-xKk"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OcN-fq-B3B">
-                                <rect key="frame" x="376" y="145" width="145" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Start Live Stream"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="5sT-TT-XsI"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kK-ZG-ul1">
-                                <rect key="frame" x="376" y="234" width="145" height="31"/>
+                                <rect key="frame" x="687" y="60" width="145" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Create Account"/>
@@ -45,11 +27,33 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2H9-bw-bz3">
-                                <rect key="frame" x="376" y="192" width="145" height="32"/>
+                                <rect key="frame" x="687" y="20" width="145" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Login"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vg9-1t-nHR">
+                                <rect key="frame" x="320" y="248" width="257" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Watch Live Stream"/>
+                                <connections>
+                                    <segue destination="aBS-w8-84N" kind="show" id="akx-Pg-xKk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OcN-fq-B3B">
+                                <rect key="frame" x="320" y="304" width="257" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Start Live Stream"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="5sT-TT-XsI"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SL_logo_wht_bkgnd" translatesAutoresizingMaskIntoConstraints="NO" id="0a4-ax-4fl">
+                                <rect key="frame" x="320" y="72" width="257" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1wg-pc-di3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -126,14 +130,6 @@
                                 <rect key="frame" x="600" y="25" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8IZ-II-NfD" userLabel="Settings Button">
-                                <rect key="frame" x="0.0" y="340" width="36" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="gear" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
-                                </buttonConfiguration>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7K-jh-Nd0">
                                 <rect key="frame" x="-15" y="35" width="81" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -184,7 +180,6 @@
                         <outlet property="distanceLabel" destination="n7K-ZQ-bn3" id="EEu-Ki-ApZ"/>
                         <outlet property="mainView" destination="0c3-3H-Y0t" id="3Qm-9Z-dqi"/>
                         <outlet property="mapView" destination="asa-BE-VXk" id="jT9-8h-6g6"/>
-                        <outlet property="settingsButton" destination="8IZ-II-NfD" id="Gdb-AJ-xjb"/>
                         <outlet property="smallView" destination="kNF-Tl-BIw" id="ZeF-uV-eyg"/>
                         <outlet property="streamLabel" destination="Qh2-g5-u3R" id="3zi-hf-jMc"/>
                         <outlet property="workoutButton" destination="DEU-6b-3fM" id="glF-Lm-0EZ"/>
@@ -256,7 +251,7 @@
         <segue reference="cOx-di-nYf"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="SL_logo_wht_bkgnd" width="975" height="741"/>
         <systemColor name="separatorColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

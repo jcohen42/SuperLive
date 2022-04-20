@@ -61,6 +61,9 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
     var workoutState = 0;// 0 = begin; 1 = end
     var watchSessionAvailable = true;
     
+    var streamInProgress = false;
+    var workoutInProgress = false;
+    
     @IBOutlet weak var LargeView: UIView!
     @IBOutlet weak var smallView: UIView!
     @IBOutlet weak var mainView: UIView!
@@ -69,24 +72,6 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
     
     @IBOutlet weak var BPMLabel: UILabel!
     @IBOutlet weak var workoutButton: UIButton!
-    @IBOutlet var settingsButton: UIButton!
-    
-    //Settings menus
-    let startStreamItem = UIAction(title: "Start Stream", image: UIImage(systemName: "play.circle")) { (action) in
-             print("Start Stream action was tapped")
-    }
-    
-    let stopStreamItem = UIAction(title: "Stop Stream", image: UIImage(systemName: "stop.circle")) { (action) in
-             print("Stop Stream action was tapped")
-    }
-    
-    let startWorkoutItem = UIAction(title: "Start Workout", image: UIImage(systemName: "person.crop.circle.fill.badge.plus")) { (action) in
-             print("Start Workout action was tapped")
-    }
-    
-    let stopWorkoutItem = UIAction(title: "Stop Workout", image: UIImage(systemName: "person.crop.circle.fill.badge.minus")) { (action) in
-             print("Stop Workout action was tapped")
-    }
     
     //screen recording variables
     var screenRecorder:RPScreenRecorder!
@@ -115,12 +100,6 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
         //Hide distance and BPM labels
         BPMLabel.isHidden = true;
         distanceLabel.isHidden = true;
-        
-        //Set the settings UIMenu
-        let menu = UIMenu(title: "Settings Menu", options: .displayInline, children: [startWorkoutItem, startStreamItem])
-        
-        settingsButton.menu = menu
-        settingsButton.showsMenuAsPrimaryAction = true
     }
     
     @objc // Expose to Objective-C for use with #selector()
@@ -328,6 +307,50 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
         }
         self.multiCapSession.commitConfiguration()//saves all the chagnes made to the multicamSession
         return (frontCamVidPort, backCamVidPort)// return all the ports found on the audio and video
+    }
+    
+    func startStream() {
+        self.streamClass.beginStream();// calls the stream class beginStream method to properly setup the the stream
+        self.streamLabel.setTitle("End Stream", for: .normal)// updates the user to show that the stream has started
+       
+        self.screenRecorder.startCapture { (sampleBuffer, sampleBufferType, error) in// starts grabbing the video/audio buffers
+            if(error != nil){// checks to see if there was a problem when trying to start capturing
+                print("There was an error gathering sample buffers from screen capture: \(String(describing: error?.localizedDescription))")
+                self.stopStream()
+            }
+            
+            switch sampleBufferType{// checks to see what buffers we got in return
+            case .video:
+                print("Sending video sample")
+                self.streamClass.samples(sample: sampleBuffer)//pass video sample along to the stream class
+               // self.assetVideoInput.append(sampleBuffer);
+                break;
+            case .audioApp:
+                break;
+            case .audioMic: //this case will never be reached
+                print("Received an audio buffer somehow")
+                break;
+            default:
+                print("Reieved unknown buffer from screen capture");
+                break;
+            }
+        } completionHandler: { (error) in// if there was an error trying to start the capture
+            if(error != nil){
+                print("There was an error completing the screen capture request \(String(describing: error?.localizedDescription))");
+                self.stopStream()
+            }
+            
+        }
+    }
+    
+    func stopStream() {
+        self.streamLabel.setTitle("Begin Stream", for: .normal)//changes the button to show the user that the stream has ended
+        self.screenRecorder.stopCapture { (error) in// stops grabbing video/audio buffers
+            if(error != nil){
+                print("There was a problem when stopping the recording")
+            }
+        }
+        self.streamClass.endStream() //end the RTMP stream
     }
     
     @IBAction func beginStream(_ sender: Any){// method used to start a "Screen capture" that will send the video buffers to the streaming class
