@@ -56,6 +56,9 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
     
     @IBOutlet weak var distanceLabel: UILabel!
     
+    @IBAction func createUser(_ sender: Any) {
+        
+    }
     //Watch Session variable decl
     var watchSession:WCSession?
     var workoutState = 0;// 0 = begin; 1 = end

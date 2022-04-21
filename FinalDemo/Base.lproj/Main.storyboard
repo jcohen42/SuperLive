@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0ch-XU-9kA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0ch-XU-9kA">
     <device id="retina6_5" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -192,7 +192,7 @@
         <!--View Controller-->
         <scene sceneID="0hv-S7-zV5">
             <objects>
-                <viewController id="07Y-a1-biZ" sceneMemberID="viewController">
+                <viewController id="07Y-a1-biZ" customClass="ViewController" customModule="FinalDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Re-7S-nZw">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -235,6 +235,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Create account"/>
+                                <connections>
+                                    <action selector="createUser:" destination="GjM-Sn-JlZ" eventType="touchUpInside" id="17k-rj-fp3"/>
+                                    <action selector="createUser:" destination="07Y-a1-biZ" eventType="touchUpInside" id="JyO-C6-YoD"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eeu-MR-azd"/>
@@ -243,6 +247,7 @@
                     <navigationItem key="navigationItem" id="LgR-Cj-G5G"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PlV-YT-XLU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="GjM-Sn-JlZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-833.03571428571422" y="-1271.0144927536232"/>
         </scene>

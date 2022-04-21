@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		0469FCC702B4C5BA64EFD3BA /* Pods_FinalDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F064D575F8EA4B4CA9912CFE /* Pods_FinalDemoTests.framework */; };
-		23049813280E2EFF00A3E45C /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 23049812280E2EFF00A3E45C /* AWSCognitoAuthPlugin */; };
-		23049815280E2EFF00A3E45C /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = 23049814280E2EFF00A3E45C /* Amplify */; };
 		2392CF89270FA198000D8A31 /* HaishinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2392CF88270FA198000D8A31 /* HaishinKit */; };
 		23DBCC2D27F0E037005854E2 /* HaishinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 23DBCC2C27F0E037005854E2 /* HaishinKit */; };
 		23E214C927EFC79B000D4CDD /* IVSPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E214C827EFC79B000D4CDD /* IVSPlayerController.swift */; };
+		6E28A3F190BE3C52C9AF6101 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 8CD7F78177FCD57DA1770ECE /* amplifyconfiguration.json */; };
+		6F519793281133AE000EA966 /* AWSAPIPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 6F519792281133AE000EA966 /* AWSAPIPlugin */; };
+		6F519795281133AE000EA966 /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 6F519794281133AE000EA966 /* AWSCognitoAuthPlugin */; };
+		6F519797281133AE000EA966 /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = 6F519796281133AE000EA966 /* Amplify */; };
 		937A165868122ECCEE246A05 /* Pods_FinalDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC7666A10C6B8B556C8781C /* Pods_FinalDemo.framework */; };
 		AE2B9AE64DEBCB8E82DC4620 /* Pods_FinalDemo_FinalDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257E347E54F1425ECDDD21E7 /* Pods_FinalDemo_FinalDemoUITests.framework */; };
 		B03BE75D26AA098D0052DB65 /* location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03BE75C26AA098D0052DB65 /* location.swift */; };
@@ -39,6 +41,7 @@
 		B09D1A8E269F874C00D5EBC1 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09D1A8D269F874C00D5EBC1 /* Stream.swift */; };
 		B0FD4F5C26B328CD00C326DC /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0FD4F5B26B328CD00C326DC /* HealthKit.framework */; };
 		B0FD4F5F26B32D8000C326DC /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0FD4F5E26B32D8000C326DC /* HealthKit.framework */; };
+		D0B0709AB6076C84C14D5B59 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = EB35E5BA517F17DE813A93AA /* awsconfiguration.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +121,7 @@
 		2DD5522B6228B7022A794E72 /* Pods-FinalDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalDemo.release.xcconfig"; path = "Target Support Files/Pods-FinalDemo/Pods-FinalDemo.release.xcconfig"; sourceTree = "<group>"; };
 		4BE6FE38273871DFD0E10A17 /* Pods-FinalDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalDemo.debug.xcconfig"; path = "Target Support Files/Pods-FinalDemo/Pods-FinalDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		7603C9CBD966C2266786A169 /* Pods-FinalDemo-FinalDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalDemo-FinalDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-FinalDemo-FinalDemoUITests/Pods-FinalDemo-FinalDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8CD7F78177FCD57DA1770ECE /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
 		B03BE75C26AA098D0052DB65 /* location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = location.swift; sourceTree = "<group>"; };
 		B09D1A0F269E4BF000D5EBC1 /* FinalDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B09D1A12269E4BF000D5EBC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 		BB1E93D9AD8D84DC85B3C426 /* Pods-FinalDemo-FinalDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalDemo-FinalDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-FinalDemo-FinalDemoUITests/Pods-FinalDemo-FinalDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D228CA30DA0C933E65EA2F9E /* Pods-FinalDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-FinalDemoTests/Pods-FinalDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E309616FBCB953A8531067BD /* Pods-FinalDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalDemoTests.release.xcconfig"; path = "Target Support Files/Pods-FinalDemoTests/Pods-FinalDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		EB35E5BA517F17DE813A93AA /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		F064D575F8EA4B4CA9912CFE /* Pods_FinalDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinalDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -168,12 +173,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F519793281133AE000EA966 /* AWSAPIPlugin in Frameworks */,
+				6F519797281133AE000EA966 /* Amplify in Frameworks */,
 				937A165868122ECCEE246A05 /* Pods_FinalDemo.framework in Frameworks */,
-				23049813280E2EFF00A3E45C /* AWSCognitoAuthPlugin in Frameworks */,
 				2392CF89270FA198000D8A31 /* HaishinKit in Frameworks */,
-				23049815280E2EFF00A3E45C /* Amplify in Frameworks */,
 				23DBCC2D27F0E037005854E2 /* HaishinKit in Frameworks */,
 				B0FD4F5F26B32D8000C326DC /* HealthKit.framework in Frameworks */,
+				6F519795281133AE000EA966 /* AWSCognitoAuthPlugin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +231,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		190482F4C54AAD6768C3C9DF /* AmplifyConfig */ = {
+			isa = PBXGroup;
+			children = (
+				EB35E5BA517F17DE813A93AA /* awsconfiguration.json */,
+				8CD7F78177FCD57DA1770ECE /* amplifyconfiguration.json */,
+			);
+			name = AmplifyConfig;
+			sourceTree = "<group>";
+		};
 		6A93DF0D11A2248B9B684512 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +278,7 @@
 				B09D1A10269E4BF000D5EBC1 /* Products */,
 				6A93DF0D11A2248B9B684512 /* Pods */,
 				92D7E8B3ACA180AE91ADDD68 /* Frameworks */,
+				190482F4C54AAD6768C3C9DF /* AmplifyConfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -383,8 +399,9 @@
 			packageProductDependencies = (
 				2392CF88270FA198000D8A31 /* HaishinKit */,
 				23DBCC2C27F0E037005854E2 /* HaishinKit */,
-				23049812280E2EFF00A3E45C /* AWSCognitoAuthPlugin */,
-				23049814280E2EFF00A3E45C /* Amplify */,
+				6F519792281133AE000EA966 /* AWSAPIPlugin */,
+				6F519794281133AE000EA966 /* AWSCognitoAuthPlugin */,
+				6F519796281133AE000EA966 /* Amplify */,
 			);
 			productName = FinalDemo;
 			productReference = B09D1A0F269E4BF000D5EBC1 /* FinalDemo.app */;
@@ -548,7 +565,7 @@
 			packageReferences = (
 				2392CF87270FA198000D8A31 /* XCRemoteSwiftPackageReference "HaishinKit" */,
 				23DBCC2B27F0E036005854E2 /* XCRemoteSwiftPackageReference "HaishinKit" */,
-				23049811280E2EFF00A3E45C /* XCRemoteSwiftPackageReference "amplify-ios" */,
+				6F519791281133AE000EA966 /* XCRemoteSwiftPackageReference "amplify-ios" */,
 			);
 			productRefGroup = B09D1A10269E4BF000D5EBC1 /* Products */;
 			projectDirPath = "";
@@ -573,6 +590,8 @@
 				B09D1A22269E4BF100D5EBC1 /* LaunchScreen.storyboard in Resources */,
 				B09D1A1F269E4BF100D5EBC1 /* Assets.xcassets in Resources */,
 				B09D1A1A269E4BF000D5EBC1 /* Main.storyboard in Resources */,
+				D0B0709AB6076C84C14D5B59 /* awsconfiguration.json in Resources */,
+				6E28A3F190BE3C52C9AF6101 /* amplifyconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,9 +695,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FinalDemo/Pods-FinalDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FinalDemo/Pods-FinalDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -693,9 +716,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FinalDemo-FinalDemoUITests/Pods-FinalDemo-FinalDemoUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FinalDemo-FinalDemoUITests/Pods-FinalDemo-FinalDemoUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -973,7 +1000,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FinalDemo/FinalDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LWW498PZM5;
+				DEVELOPMENT_TEAM = 3WP6S24MX5;
 				INFOPLIST_FILE = FinalDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -995,7 +1022,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FinalDemo/FinalDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LWW498PZM5;
+				DEVELOPMENT_TEAM = 3WP6S24MX5;
 				"DEVELOPMENT_TEAM[sdk=*]" = LWW498PZM5;
 				INFOPLIST_FILE = FinalDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1017,7 +1044,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LWW498PZM5;
+				DEVELOPMENT_TEAM = 3WP6S24MX5;
 				INFOPLIST_FILE = FinalDemoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1040,7 +1067,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LWW498PZM5;
+				DEVELOPMENT_TEAM = 3WP6S24MX5;
 				INFOPLIST_FILE = FinalDemoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1062,7 +1089,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LWW498PZM5;
+				DEVELOPMENT_TEAM = 3WP6S24MX5;
 				INFOPLIST_FILE = FinalDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1083,7 +1110,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LWW498PZM5;
+				DEVELOPMENT_TEAM = 3WP6S24MX5;
 				INFOPLIST_FILE = FinalDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1105,7 +1132,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LWW498PZM5;
+				DEVELOPMENT_TEAM = 3WP6S24MX5;
 				IBSC_MODULE = FinalDemoHeart_Extension;
 				INFOPLIST_FILE = FinalDemoHeart/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = Ponce.FinalDemo.watchkitapp;
@@ -1125,7 +1152,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LWW498PZM5;
+				DEVELOPMENT_TEAM = 3WP6S24MX5;
 				IBSC_MODULE = FinalDemoHeart_Extension;
 				INFOPLIST_FILE = FinalDemoHeart/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = Ponce.FinalDemo.watchkitapp;
@@ -1144,7 +1171,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "FinalDemoHeart Extension/FinalDemoHeart Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LWW498PZM5;
+				DEVELOPMENT_TEAM = 3WP6S24MX5;
 				INFOPLIST_FILE = "FinalDemoHeart Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1167,7 +1194,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "FinalDemoHeart Extension/FinalDemoHeart Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LWW498PZM5;
+				DEVELOPMENT_TEAM = 3WP6S24MX5;
 				INFOPLIST_FILE = "FinalDemoHeart Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1190,7 +1217,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LWW498PZM5;
+				DEVELOPMENT_TEAM = 3WP6S24MX5;
 				INFOPLIST_FILE = FinalDemoHeartTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1213,7 +1240,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LWW498PZM5;
+				DEVELOPMENT_TEAM = 3WP6S24MX5;
 				INFOPLIST_FILE = FinalDemoHeartTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1234,7 +1261,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LWW498PZM5;
+				DEVELOPMENT_TEAM = 3WP6S24MX5;
 				INFOPLIST_FILE = FinalDemoHeartUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1255,7 +1282,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LWW498PZM5;
+				DEVELOPMENT_TEAM = 3WP6S24MX5;
 				INFOPLIST_FILE = FinalDemoHeartUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1350,14 +1377,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		23049811280E2EFF00A3E45C /* XCRemoteSwiftPackageReference "amplify-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/aws-amplify/amplify-ios";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		2392CF87270FA198000D8A31 /* XCRemoteSwiftPackageReference "HaishinKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/shogo4405/HaishinKit.swift";
@@ -1374,19 +1393,17 @@
 				kind = branch;
 			};
 		};
+		6F519791281133AE000EA966 /* XCRemoteSwiftPackageReference "amplify-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aws-amplify/amplify-ios";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		23049812280E2EFF00A3E45C /* AWSCognitoAuthPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 23049811280E2EFF00A3E45C /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = AWSCognitoAuthPlugin;
-		};
-		23049814280E2EFF00A3E45C /* Amplify */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 23049811280E2EFF00A3E45C /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = Amplify;
-		};
 		2392CF88270FA198000D8A31 /* HaishinKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2392CF87270FA198000D8A31 /* XCRemoteSwiftPackageReference "HaishinKit" */;
@@ -1396,6 +1413,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 23DBCC2B27F0E036005854E2 /* XCRemoteSwiftPackageReference "HaishinKit" */;
 			productName = HaishinKit;
+		};
+		6F519792281133AE000EA966 /* AWSAPIPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6F519791281133AE000EA966 /* XCRemoteSwiftPackageReference "amplify-ios" */;
+			productName = AWSAPIPlugin;
+		};
+		6F519794281133AE000EA966 /* AWSCognitoAuthPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6F519791281133AE000EA966 /* XCRemoteSwiftPackageReference "amplify-ios" */;
+			productName = AWSCognitoAuthPlugin;
+		};
+		6F519796281133AE000EA966 /* Amplify */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6F519791281133AE000EA966 /* XCRemoteSwiftPackageReference "amplify-ios" */;
+			productName = Amplify;
 		};
 /* End XCSwiftPackageProductDependency section */
 
