@@ -75,8 +75,10 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       notificationPayloadFile = "FinalDemoHeart Extension/PushNotificationPayload.apns">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/FinalDemo">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B09D1A46269F761900D5EBC1"
@@ -84,7 +86,7 @@
             BlueprintName = "FinalDemoHeart"
             ReferencedContainer = "container:FinalDemo.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -93,8 +95,10 @@
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES"
       notificationPayloadFile = "FinalDemoHeart Extension/PushNotificationPayload.apns">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/FinalDemo">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B09D1A46269F761900D5EBC1"
@@ -102,7 +106,16 @@
             BlueprintName = "FinalDemoHeart"
             ReferencedContainer = "container:FinalDemo.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "B09D1A46269F761900D5EBC1"
+            BuildableName = "FinalDemoHeart.app"
+            BlueprintName = "FinalDemoHeart"
+            ReferencedContainer = "container:FinalDemo.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

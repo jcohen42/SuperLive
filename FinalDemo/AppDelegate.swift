@@ -3,21 +3,26 @@
 //  FinalDemo
 //
 //  Created by Alexis Ponce on 7/13/21.
-//
+// Updated by Rebecca Kraft on 4/22/22
 import Amplify
 import UIKit
 import CoreData
+import AWSCognitoAuthPlugin
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
         do {
+            try Amplify.add(plugin: AWSCognitoAuthPlugin())
             try Amplify.configure()
+            print("Amplify configured with auth plugin")
         } catch {
-            print("An error occurred setting up Amplify: \(error)")
+            print("Failed to initialize Amplify with \(error)")
         }
+
         return true
     }
 
