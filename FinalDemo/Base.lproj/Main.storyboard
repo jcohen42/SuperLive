@@ -23,7 +23,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Create Account"/>
                                 <connections>
-                                    <segue destination="07Y-a1-biZ" kind="show" id="Q1N-wj-YIv"/>
+                                    <segue destination="07Y-a1-biZ" kind="show" id="Usk-hq-3Cy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2H9-bw-bz3">
@@ -189,23 +189,16 @@
             </objects>
             <point key="canvasLocation" x="-11.383928571428571" y="-513.04347826086962"/>
         </scene>
-        <!--View Controller-->
+        <!--Create User-->
         <scene sceneID="0hv-S7-zV5">
             <objects>
-                <viewController id="07Y-a1-biZ" customClass="ViewController" customModule="FinalDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="07Y-a1-biZ" customClass="createUser" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Re-7S-nZw">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create a Superlive Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqN-5z-yQe">
                                 <rect key="frame" x="367" y="66" width="192" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create a username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kR1-jX-Jfe">
-                                <rect key="frame" x="220" y="128" width="149" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -218,6 +211,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create a username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kR1-jX-Jfe">
+                                <rect key="frame" x="220" y="128" width="149" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create a password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dra-nn-XbB">
                                 <rect key="frame" x="220" y="182" width="147" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -232,6 +232,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6t-pA-lHZ">
+                                <rect key="frame" x="378" y="295" width="123" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Create account"/>
+                                <connections>
+                                    <action selector="createUser:" destination="07Y-a1-biZ" eventType="touchUpInside" id="Sk7-dl-kGF"/>
+                                    <segue destination="6jU-dx-3s6" kind="show" id="80Z-D8-cLJ"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9j6-Uf-YvW">
                                 <rect key="frame" x="321" y="235" width="46" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -246,37 +256,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6t-pA-lHZ">
-                                <rect key="frame" x="378" y="295" width="123" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Create account"/>
-                                <connections>
-                                    <action selector="createUser:" destination="GjM-Sn-JlZ" eventType="touchUpInside" id="17k-rj-fp3"/>
-                                    <action selector="createUser:" destination="07Y-a1-biZ" eventType="touchUpInside" id="JyO-C6-YoD"/>
-                                    <segue destination="6jU-dx-3s6" kind="show" id="80Z-D8-cLJ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eeu-MR-azd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="LgR-Cj-G5G"/>
                     <connections>
-                        <outlet property="emailtext" destination="9kc-05-1t0" id="Blg-tx-bu9"/>
-                        <outlet property="passwordtext" destination="xmo-WA-uMQ" id="ZeP-JH-OlK"/>
-                        <outlet property="userNametext" destination="RKv-BS-lGR" id="zia-ZH-u4q"/>
+                        <outlet property="emailtext" destination="9kc-05-1t0" id="VdY-kO-zUa"/>
+                        <outlet property="passwordtext" destination="xmo-WA-uMQ" id="aZD-2U-WZk"/>
+                        <outlet property="userNametext" destination="RKv-BS-lGR" id="kBQ-63-gG0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PlV-YT-XLU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="GjM-Sn-JlZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-833.03571428571422" y="-1271.0144927536232"/>
         </scene>
-        <!--View Controller-->
+        <!--Create User-->
         <scene sceneID="rgA-qS-pmJ">
             <objects>
-                <viewController id="6jU-dx-3s6" customClass="ViewController" customModule="FinalDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6jU-dx-3s6" customClass="createUser" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0I2-yh-Vu5">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -301,8 +299,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Confirm!"/>
                                 <connections>
-                                    <action selector="confirmCode:" destination="6jU-dx-3s6" eventType="touchUpInside" id="VYu-md-6me"/>
-                                    <action selector="confirmCode:" destination="f9Y-Zo-atw" eventType="touchUpInside" id="ydX-hd-dS1"/>
+                                    <action selector="confirmCode:" destination="6jU-dx-3s6" eventType="touchUpInside" id="8I5-86-tFJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -311,11 +308,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="cpD-tp-D2j"/>
                     <connections>
-                        <outlet property="confirmationtext" destination="6Pb-GX-jPe" id="AVz-bm-afJ"/>
+                        <outlet property="confirmationtext" destination="6Pb-GX-jPe" id="2v1-e1-HeK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G9O-z0-kga" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="f9Y-Zo-atw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-1126.3392857142856" y="-2030.4347826086957"/>
         </scene>

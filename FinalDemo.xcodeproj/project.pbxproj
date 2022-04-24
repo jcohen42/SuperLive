@@ -15,6 +15,7 @@
 		6F519793281133AE000EA966 /* AWSAPIPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 6F519792281133AE000EA966 /* AWSAPIPlugin */; };
 		6F519795281133AE000EA966 /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 6F519794281133AE000EA966 /* AWSCognitoAuthPlugin */; };
 		6F519797281133AE000EA966 /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = 6F519796281133AE000EA966 /* Amplify */; };
+		6F5197992814D624000EA966 /* createUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5197982814D623000EA966 /* createUser.swift */; };
 		937A165868122ECCEE246A05 /* Pods_FinalDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC7666A10C6B8B556C8781C /* Pods_FinalDemo.framework */; };
 		AE2B9AE64DEBCB8E82DC4620 /* Pods_FinalDemo_FinalDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257E347E54F1425ECDDD21E7 /* Pods_FinalDemo_FinalDemoUITests.framework */; };
 		B03BE75D26AA098D0052DB65 /* location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03BE75C26AA098D0052DB65 /* location.swift */; };
@@ -120,6 +121,7 @@
 		2DC7666A10C6B8B556C8781C /* Pods_FinalDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinalDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DD5522B6228B7022A794E72 /* Pods-FinalDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalDemo.release.xcconfig"; path = "Target Support Files/Pods-FinalDemo/Pods-FinalDemo.release.xcconfig"; sourceTree = "<group>"; };
 		4BE6FE38273871DFD0E10A17 /* Pods-FinalDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalDemo.debug.xcconfig"; path = "Target Support Files/Pods-FinalDemo/Pods-FinalDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		6F5197982814D623000EA966 /* createUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createUser.swift; sourceTree = "<group>"; };
 		7603C9CBD966C2266786A169 /* Pods-FinalDemo-FinalDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalDemo-FinalDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-FinalDemo-FinalDemoUITests/Pods-FinalDemo-FinalDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8CD7F78177FCD57DA1770ECE /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
 		B03BE75C26AA098D0052DB65 /* location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = location.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				B0FD4F5D26B32D8000C326DC /* FinalDemo.entitlements */,
+				6F5197982814D623000EA966 /* createUser.swift */,
 				B09D1A12269E4BF000D5EBC1 /* AppDelegate.swift */,
 				B09D1A14269E4BF000D5EBC1 /* SceneDelegate.swift */,
 				B09D1A16269E4BF000D5EBC1 /* ViewController.swift */,
@@ -764,6 +767,7 @@
 				B09D1A1D269E4BF000D5EBC1 /* FinalDemo.xcdatamodeld in Sources */,
 				B09D1A13269E4BF000D5EBC1 /* AppDelegate.swift in Sources */,
 				B09D1A15269E4BF000D5EBC1 /* SceneDelegate.swift in Sources */,
+				6F5197992814D624000EA966 /* createUser.swift in Sources */,
 				B09D1A8E269F874C00D5EBC1 /* Stream.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
