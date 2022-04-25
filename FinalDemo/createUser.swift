@@ -83,6 +83,7 @@ func signUp(username: String, password: String, email: String) {
     password = passwordtext.text!
     email = emailtext.text!
     signUp(username: userNametext.text!, password: passwordtext.text!,email: emailtext.text!)
+    //https://awslabs.github.io/aws-sdk-swift/reference/0.x/AWSIvs/IvsClient.html
  
 }
 @IBAction func confirmCode(_ sender: Any) {
