@@ -36,13 +36,13 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
     private var pipDevicePosition: AVCaptureDevice.Position = .front
     
     //File asset variables
-    var assetWriter:AVAssetWriter!
-    var assetVideoInput:AVAssetWriterInput!
-    var assetAudioOutput:AVAssetWriterInput!
-    var fileManager:FileManager!
-    var tempFileURL:URL!
-    var assetWriterJustStartedWriting = false;
-    var justStartedRecording = false;
+//    var assetWriter:AVAssetWriter!
+//    var assetVideoInput:AVAssetWriterInput!
+//    var assetAudioOutput:AVAssetWriterInput!
+//    var fileManager:FileManager!
+//    var tempFileURL:URL!
+//    var assetWriterJustStartedWriting = false;
+//    var justStartedRecording = false;
 
     //location variables
     var locationManager = CLLocationManager()
@@ -64,17 +64,13 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
     var workoutState = 0;// 0 = begin; 1 = end
     var watchSessionAvailable = true;
     
-    var streamInProgress = false;
-    var workoutInProgress = false;
-    
     @IBOutlet weak var LargeView: UIView!
     @IBOutlet weak var smallView: UIView!
     @IBOutlet weak var mainView: UIView!
-    @IBOutlet private var frontConstraints: [NSLayoutConstraint]!
-    @IBOutlet private var backConstraints: [NSLayoutConstraint]!
     
     @IBOutlet weak var BPMLabel: UILabel!
     @IBOutlet weak var workoutButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
     //screen recording variables
     var screenRecorder:RPScreenRecorder!
@@ -117,8 +113,6 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
         
         if pipDevicePosition == .front {
             print("changing to back")
-            //NSLayoutConstraint.deactivate(frontConstraints)
-            //NSLayoutConstraint.activate(backConstraints)
             //Swap sizes of the views
             self.frontPreviewLayer.frame = largeBounds;
             self.backPreviewLayer.frame = smallBounds;
@@ -127,8 +121,6 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
             pipDevicePosition = .back
         } else {
             print("changing to front")
-            //NSLayoutConstraint.deactivate(backConstraints)
-            //NSLayoutConstraint.activate(frontConstraints)
             //Swap sizes of the views
             self.frontPreviewLayer.frame = smallBounds;
             self.backPreviewLayer.frame = largeBounds;
@@ -315,6 +307,8 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
     func startStream() {
         self.streamClass.beginStream();// calls the stream class beginStream method to properly setup the the stream
         self.streamLabel.setTitle("End Stream", for: .normal)// updates the user to show that the stream has started
+        
+        backButton.isHidden = true;
        
         self.screenRecorder.startCapture { (sampleBuffer, sampleBufferType, error) in// starts grabbing the video/audio buffers
             if(error != nil){// checks to see if there was a problem when trying to start capturing
@@ -354,109 +348,15 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
             }
         }
         self.streamClass.endStream() //end the RTMP stream
+        
+        backButton.isHidden = false;
     }
     
-    @IBAction func beginStream(_ sender: Any){// method used to start a "Screen capture" that will send the video buffers to the streaming class
-        
+    @IBAction func streamButtonClick(_ sender: Any){//Starts or stops the screen
         if(self.screenRecorder.isRecording){// checks to see if it is already recording
-            self.streamLabel.setTitle("Begin Stream", for: .normal)//changes the button to show the user that the stream has ended
-//            let doc = NSSearchPathForDirectoriesInDomains(.applicationDirectory, .userDomainMask, true)[0] as NSString;
-//            FileManager.default.createFile(atPath: doc as String, contents: self.tempFileURL.dataRepresentation, attributes: nil)
-//            var stringUrl = doc as String
-//            stringUrl += "/"
-//            if(FileManager.default.fileExists(atPath: <#T##String#>))
-            self.justStartedRecording = false;// Global variable to keep in track of the streaming state
-//           self.assetWriter.finishWriting {
-//                let status = PHPhotoLibrary.authorizationStatus();
-//                
-//                if(status == .denied || status == .notDetermined || status == .restricted || status == .limited){
-//                    PHPhotoLibrary.requestAuthorization { (auth) ind
-//                        if(auth == .authorized){
-//                            self.saveToPhotoLibrary();
-//                        }else{
-//                            print("User denied access to phot library");
-//                        }
-//                    }
-//                }else{
-//                    self.saveToPhotoLibrary();
-//                }
-//            }
-            self.screenRecorder.stopCapture { (error) in// stops grabbing video/audio buffers
-                if(error != nil){
-                    print("There was a problem when stopping the recording")
-                }
-            }
-            self.streamClass.endStream() //end the RTMP stream
-        }else{
-            self.streamClass.beginStream();// calls the stream class beginStream method to properly setup the the stream
-            self.streamLabel.setTitle("End Stream", for: .normal)// updates the user to show that the stream has started
-           // self.setUpAssetWriter();
-           
-            self.screenRecorder.startCapture { (sampleBuffer, sampleBufferType, error) in// starts grabbing the video/audio buffers
-                if(error != nil){// checks to see if there was a problem when trying to start capturing
-                    print("There was an error gathering sample buffers from screen capture: \(String(describing: error?.localizedDescription))")
-                    self.streamClass.endStream()
-                }
-//                if(self.justStartedRecording){
-//                    self.setUpAssetWriter(sampleBuff: sampleBuffer)
-//                    self.assetWriter.startSession(atSourceTime: CMTime.zero)
-//                    print("Setting the source time")
-//                    self.assetWriterJustStartedWriting = false;
-//                    print("Entered trying to setup recording")
-//                    self.justStartedRecording = false;
-//                }
-//                if(self.assetWriterJustStartedWriting){
-//                    self.assetWriter.startSession(atSourceTime: CMTime.zero)
-//                    print("Setting the source time")
-//                    self.assetWriterJustStartedWriting = false;
-//                }
-//                guard let writer = self.assetWriter else{ return;}
-//                if(writer.status == .unknown){
-//                    if(CMSampleBufferDataIsReady(sampleBuffer)){
-//                        if(!self.justStartedRecording){
-//                            self.justStartedRecording = true;
-//                            DispatchQueue.main.async {
-//                                print("About to start the assetWriter")
-//                                self.assetWriter.startWriting()
-//                                self.assetWriter.startSession(atSourceTime: CMSampleBufferGetPresentationTimeStamp(sampleBuffer));
-//
-//                            }
-//                        }
-//
-//                    }
-//                }else if(writer.status == .writing){
-//                    if(CMSampleBufferDataIsReady(sampleBuffer)){
-//                        print("Ready to send sample buffers")
-                        switch sampleBufferType{// checks to see what buffers we got in return
-                        case .video:
-                            print("Sending video sample")
-                            self.streamClass.samples(sample: sampleBuffer)//pass video sample along to the stream class
-                           // self.assetVideoInput.append(sampleBuffer);
-                            break;
-                        case .audioApp:
-                            break;
-                        case .audioMic: //this case will never be reached
-                            print("Received an audio buffer somehow")
-                            break;
-                        default:
-                            print("Reieved unknown buffer from screen capture");
-                            break;
-                        }
-//                    }
-//                }else if(writer.status == .failed){
-//                    print("Not sending anything asset writer failed\n with error code \(writer.error)")
-//                    print(sampleBuffer)
-//                }else if(writer.status == .cancelled){
-//                    print("Something cancelled the assetwriter")
-//                }
-
-            } completionHandler: { (error) in// if there was an error trying to start the capture
-                if(error != nil){
-                    print("There was an error completing the screen capture request \(String(describing: error?.localizedDescription))");
-                    self.streamClass.endStream()
-                }
-                
-            }
+            self.stopStream()
+        } else {
+            self.startStream()
         }
     }
     
@@ -538,6 +438,7 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
         }
     }
     
+    /*
     func saveToPhotoLibrary(){// can be used to save the videos of the stream, not supported currently
         
         PHPhotoLibrary.shared().performChanges {// tells the photolibrary that we will make some changes
@@ -576,6 +477,7 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
             }
         }
     }
+    */
     
     @IBAction func startWorkout(_ sender: Any) {// function to be called when the user has requested to begin the workout
         if(watchSessionAvailable){// if the watch sessoin was able to be set up
@@ -592,7 +494,7 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
                         let workoutMSG = ["Workout":"Start"]// the message that will be sent to the apple watch
                         validSession.sendMessage(workoutMSG, replyHandler: nil) { (error) in// sends the message to the apple watch
                             if(error != nil){
-                                print("Ther was a prblem trying to send the workout message to the watch");
+                                print("There was a prblem trying to send the workout message to the watch");
                             }
                         }
                     }else{ //if the apple watch was not in reach
@@ -635,6 +537,7 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
         }
     }
     
+    /*
     func setUpAssetWriter(){// used to be able to write the data to a file that will be used to save the video and audio- NOT CURRENTLY USED
         self.assetWriterJustStartedWriting = true;
 //        self.tempFileURL = self.videoLocation();
@@ -752,7 +655,7 @@ class ViewController: UIViewController, StreamDelegate, RPScreenRecorderDelegate
         let returned = URL(string: outPutFilePath)
         return returned!;
     }
-
+     */
 }
 
 //MARK: Location Delegates
